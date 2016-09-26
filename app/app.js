@@ -1,5 +1,13 @@
 
 
+
+
+
+
+
+
+
+
 var version = '0.0.1';
 console.log('new App ' + version);
 
@@ -86,27 +94,46 @@ if(isNodeWebkit) {
 	
 	
 
-	var feedUrl = 'http://nodejs03.cleversite.ru/download/latest';
-	autoUpdater.setFeedURL(feedUrl);
-	 
-	autoUpdate.on('update-available', function() {
-		console.log('update-available');
-	});
-	
-	autoUpdate.on('error', function(e) {
-		console.log(e);
-	});
-	autoUpdate.on('checking-for-update', function() {
-		console.log('checking-for-update');
-	});
-	autoUpdate.on('update-not-available', function() {
-		console.log('update-not-available');
-	});
-	autoUpdate.on('update-downloaded', function() {
-		console.log('update-downloaded');
-	});
+
+	var os = require('os');
+	const appVersion = require('./package.json').version;
+	console.log(os.platform());
+	if(os.platform() == 'darwin') {
+		var autoUpdater = require('electron').autoUpdater;
+		var platform = os.platform() + '_' + os.arch();  
+
+		autoUpdater.setFeedURL('http://nodejs03.cleversite.ru/update/'+platform+'/'+appVersion);
 		
-	autoUpdate.checkForUpdates();
+		autoUpdate.checkForUpdates();
+	
+		autoUpdate.on('update-available', function() {
+			console.log('update-available');
+		});
+		
+		autoUpdate.on('error', function(e) {
+			console.log(e);
+		});
+		autoUpdate.on('checking-for-update', function() {
+			console.log('checking-for-update');
+		});
+		autoUpdate.on('update-not-available', function() {
+			console.log('update-not-available');
+		});
+		autoUpdate.on('update-downloaded', function() {
+			console.log('update-downloaded');
+		});
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
