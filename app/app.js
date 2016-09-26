@@ -2,6 +2,7 @@
 
 
 console.log('new App 0.0.1');
+console.log('new App 0.0.1 TEST');
 
 
 var MODE  = 'developer';
@@ -9,6 +10,12 @@ var isNodeWebkit = ((/^file:/.test(window.location.protocol)) || (/^chrome-exten
 var version = '0.0.1';
 var refresh = new Date().getTime();
 //var refresh = version;
+
+
+
+
+
+
 
 
 
@@ -41,31 +48,34 @@ if(isNodeWebkit) {
     }
 	document.body.className = 'desctop' + (document.body.className ? ' '+document.body.className : '');
 	
-	
-	var platformAr = process.platform;
-	var arch = process.arch === 'ia32' ? '32' : '64';
-
-	platformAr = platformAr.indexOf('win') === 0 ? 'win'
-			 : platformAr.indexOf('darwin') === 0 ? 'osx'
-			 : 'linux';
-
-	var platform = {
-	  isOSX: platformAr === 'osx',
-	  isWindows: platformAr === 'win',
-	  isLinux: platformAr === 'linux',
-	  name: platformAr + arch,
-	  type: platformAr,
-	  arch: arch
-	};
-		
 	ipc.on('test', function(e,s) {
 		console.log(s);
 	});
 	
 	
+	
+	
+	
+	
+	
+	/*
+	const autoUpdater = require('auto-updater');
+	const appVersion = require('./package.json').version;
+	const os = require('os').platform();
+
+		
+		
+	
+	var updateFeed = 'http://176.112.211.45:1337/download/latest';
+	autoUpdater.setFeedURL(updateFeed);
+	console.log(autoUpdater.checkForUpdates());
+	
+	*/
+	
+	
 }
 
-
+ 
 
 
 
