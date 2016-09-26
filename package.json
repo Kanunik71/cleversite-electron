@@ -1,0 +1,28 @@
+{
+  "name": "Cleversite-electron",
+  "version": "0.0.1",
+  "author": {
+    "name": "Serg",
+    "email": "kanunik71@yandex.ru",
+    "url": "https://github.com/Kanunik71/"
+  },
+  "description": "Online-consult pult",
+  "repository": "https://github.com/Kanunik71/cleversite-electron",
+  "devDependencies": {
+    "electron-builder": "^7.9.0",
+    "electron-prebuilt": "^1.4.1"
+  },
+  "build": {
+        "appId": "cleversite.electron",
+        "app-category-type": "public.app-category.productivity",
+        "win": {
+            "iconUrl": "https://nodejs01.cleversite.ru/images/build/icon.ico"
+        }
+    },
+	"scripts": {
+		"postinstall": "install-app-deps",
+		"start": "electron ./app --enable-logging",
+		"dev": "NODE_ENV='development' npm run start",
+		"dist": "build -mwl --x64 --ia32"
+	}
+}
