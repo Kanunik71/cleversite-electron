@@ -1,13 +1,12 @@
 
 
-
-console.log('new App 0.0.1');
-console.log('new App 0.0.1 TEST');
+var version = '0.0.1';
+console.log('new App ' + version);
 
 
 var MODE  = 'developer';
 var isNodeWebkit = ((/^file:/.test(window.location.protocol)) || (/^chrome-extension:/.test(window.location.protocol))) ? true : false;
-var version = '0.0.1';
+
 var refresh = new Date().getTime();
 //var refresh = version;
 
@@ -55,9 +54,36 @@ if(isNodeWebkit) {
 	
 	
 	
+	var updateFeed = 'http://176.112.211.45:1337/download/latest';
+	if (process.platform === 'win32') {
+		var autoUpdate = require('./auto-updater/auto-updater-win')
+	} else {
+		var autoUpdate = require('./auto-updater/auto-updater-native')
+	}
+	
+	autoUpdate.setFeedURL(updateFeed);
+	
+	autoUpdate.checkForUpdates();
+	
+	autoUpdate.on('update-available', function() {
+		console.log('update-available');
+	});
+	
+	autoUpdate.on('error', function(e) {
+		console.log(e);
+	});
+	autoUpdate.on('checking-for-update', function() {
+		console.log('checking-for-update');
+	});
+	autoUpdate.on('update-not-available', function() {
+		console.log('update-not-available');
+	});
+	autoUpdate.on('update-downloaded', function() {
+		console.log('update-downloaded');
+	});
 	
 	
-	
+
 	/*
 	const autoUpdater = require('auto-updater');
 	const appVersion = require('./package.json').version;
