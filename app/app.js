@@ -54,14 +54,14 @@ if(isNodeWebkit) {
 		this.BrowserWindow = electron.BrowserWindow
     }
 	document.body.className = 'desctop' + (document.body.className ? ' '+document.body.className : '');
-	
+
 	ipc.on('test', function(e,s) {
 		console.log(s);
 	});
-	
-	
-	
-	
+
+
+
+
 	/*
 	var updateFeed = 'http://nodejs03.cleversite.ru/download/latest';
 	if (process.platform === 'win32') {
@@ -69,15 +69,15 @@ if(isNodeWebkit) {
 	} else {
 		var autoUpdate = require('./auto-updater/auto-updater-native')
 	}
-	
+
 	autoUpdate.setFeedURL(updateFeed);
-	
+
 	autoUpdate.checkForUpdates();
-	
+
 	autoUpdate.on('update-available', function() {
 		console.log('update-available');
 	});
-	
+
 	autoUpdate.on('error', function(e) {
 		console.log(e);
 	});
@@ -91,25 +91,25 @@ if(isNodeWebkit) {
 		console.log('update-downloaded');
 	});
 	*/
-	
-	
 
 
+
+/*
 	var os = require('os');
 	const appVersion = require('./package.json').version;
 	console.log(os.platform());
-	if(os.platform() == 'darwin') {
+//	if(os.platform() == 'darwin') {
 		var autoUpdater = require('electron').autoUpdater;
-		var platform = os.platform() + '_' + os.arch();  
+		var platform = os.platform() + '_' + os.arch();
 
 		autoUpdater.setFeedURL('http://nodejs03.cleversite.ru/update/'+platform+'/'+appVersion);
-		
+
 		autoUpdate.checkForUpdates();
-	
+
 		autoUpdate.on('update-available', function() {
 			console.log('update-available');
 		});
-		
+
 		autoUpdate.on('error', function(e) {
 			console.log(e);
 		});
@@ -122,40 +122,40 @@ if(isNodeWebkit) {
 		autoUpdate.on('update-downloaded', function() {
 			console.log('update-downloaded');
 		});
-		
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	//}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
 	/*
 	const autoUpdater = require('auto-updater');
 	const appVersion = require('./package.json').version;
 	const os = require('os').platform();
 
-		
-		
-	
+
+
+
 	var updateFeed = 'http://176.112.211.45:1337/download/latest';
 	autoUpdater.setFeedURL(updateFeed);
 	console.log(autoUpdater.checkForUpdates());
-	
+
 	*/
-	
-	
+
+
 }
 
- 
+
 
 
 
@@ -516,49 +516,49 @@ var menus = {
 
 	// Add a context menu
 	var gui = require("nw.gui");
-  
+
 	var menu = new gui.Menu;
-	  
+
 	  menu.append(new gui.MenuItem({
 		label: "Вырезать",
 		click: function() {
 		  document.execCommand("cut");
 		}
 	  }));
-	  
+
 	  menu.append(new gui.MenuItem({
 		label: "Копировать",
 		click: function() {
 		  document.execCommand("copy");
 		}
 	  }));
-	  
+
 	  menu.append(new gui.MenuItem({
 		label: "Вставить",
 		click: function() {
 		  document.execCommand("paste");
 		}
 	  }));
-	  
 
-	  
+
+
 	  document.addEventListener("contextmenu", function(e) {
 		e.preventDefault();
 		if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement || e.target.isContentEditable) {
 		  menu.popup(e.x, e.y);
 		}
 	  });
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
 
 
 
