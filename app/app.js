@@ -54,7 +54,8 @@ if(isNodeWebkit) {
 	
 	
 	
-	var updateFeed = 'http://176.112.211.45:1337/download/latest';
+	/*
+	var updateFeed = 'http://nodejs03.cleversite.ru/download/latest';
 	if (process.platform === 'win32') {
 		var autoUpdate = require('./auto-updater/auto-updater-win')
 	} else {
@@ -81,9 +82,35 @@ if(isNodeWebkit) {
 	autoUpdate.on('update-downloaded', function() {
 		console.log('update-downloaded');
 	});
+	*/
 	
 	
 
+	var feedUrl = 'http://nodejs03.cleversite.ru/download/latest';
+	autoUpdater.setFeedURL(feedUrl);
+	 
+	autoUpdate.on('update-available', function() {
+		console.log('update-available');
+	});
+	
+	autoUpdate.on('error', function(e) {
+		console.log(e);
+	});
+	autoUpdate.on('checking-for-update', function() {
+		console.log('checking-for-update');
+	});
+	autoUpdate.on('update-not-available', function() {
+		console.log('update-not-available');
+	});
+	autoUpdate.on('update-downloaded', function() {
+		console.log('update-downloaded');
+	});
+		
+	autoUpdate.checkForUpdates();
+	
+	
+	
+	
 	/*
 	const autoUpdater = require('auto-updater');
 	const appVersion = require('./package.json').version;
