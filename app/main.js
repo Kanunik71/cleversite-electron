@@ -18,13 +18,13 @@ var mainWindow = null;
 
 
 
+
+/*
 var autoUpdater = require('electron').autoUpdater;
 var platform = os.platform() + '_' + os.arch();  // usually returns darwin_64
 var version = app.getVersion();
 
 autoUpdater.setFeedURL('http://nodejs03.cleversite.ru/update/'+platform+'/'+version);
-
-//setTimeout(function() {		win.send('test', 'file://' + __dirname + '/index.html');	}, 4000);
 
 autoUpdate.checkForUpdates();
 
@@ -45,7 +45,7 @@ autoUpdate.on('update-not-available', function() {
 autoUpdate.on('update-downloaded', function() {
 	console.log('update-downloaded');
 });
-
+*/
 
 
 
