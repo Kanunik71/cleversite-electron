@@ -58,9 +58,41 @@ if(isNodeWebkit) {
 	ipc.on('test', function(e,s) {
 		console.log(s);
 	});
+	
+	
+	function getCurrentApplicationPath() {
+		if (global.process.platform === 'darwin') {
+			return global.process.execPath.split('.app/Content')[0] + '.app';
+		}
+		return null;
+	};
 
+	var AutoLaunch = require('auto-launch');
+	window.launcher = new AutoLaunch({
+		name: 'Cleversite',
+		path: getCurrentApplicationPath(),
+		isHidden: false,
+	});
 
+	//launcher.removeNwjsLoginItem();
 
+	launcher.isEnabled(function(enabled) {
+		if(window.configApp.desktop.prop_autoStart == 1 && !enabled) {
+		  launcher.enable(function(error) {
+			if (error) {
+			  console.error(error);
+			}
+		  });
+		} else if (window.configApp.desktop.prop_autoStart == 0 && enabled){
+		  launcher.disable(function(error) {
+			if (error) {
+			  console.error(error);
+			}
+		  });
+		}
+	});
+	
+	
 
 	/*
 	var updateFeed = 'http://nodejs03.cleversite.ru/download/latest';

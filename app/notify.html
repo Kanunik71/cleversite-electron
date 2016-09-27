@@ -16,7 +16,7 @@
 	});
 	ipc.on('addText', function(e, o) {
 		//document.querySelectorAll('.notifylist .notify .text textarea')[0].value = document.querySelectorAll('.notifylist .notify .text textarea')[0].value + "\n\r" + o
-		$('.notifylist').find('.notify').find('.text').find('.textarea').val($('.notifylist').find('.notify').find('.text').find('.textarea').val() + "\n\r" + o);
+		$('.notifylist').find('.notify').find('.text').find('textarea').val($('.notifylist').find('.notify').find('.text').find('textarea').val() + "\n\r" + o);
 	});
 	ipc.on('fastAnswer', function(e, o) {
 		$('.btns').before('<div class="fastanswer_block"><textarea></textarea></div>');

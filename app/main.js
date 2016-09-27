@@ -1,7 +1,7 @@
 #!/usr/bin/env electron
 
 
-var app = require('electron').app
+const {app, Menu, Tray} = require('electron');
 var BrowserWindow = require('electron').BrowserWindow;
 var path = require('path')
 var ipc = require('electron').ipcMain
@@ -17,11 +17,9 @@ var win;
 var mainWindow = null;
 
 
+
 /*
-if (require("electron-squirrel-startup")) {
-    return;
-}
-*/
+//if (require("electron-squirrel-startup")) {    return;}
 if(process.platform == 'win32') {
 		var autoUpdater = require('electron-windows-updater');
 } else {
@@ -52,32 +50,6 @@ autoUpdater.on('update-not-available', function() {
 autoUpdater.on('update-downloaded', function() {
 	console.log('update-downloaded');
 });
-/*
-var autoUpdater = require('electron').autoUpdater;
-var platform = os.platform() + '_' + os.arch();  // usually returns darwin_64
-var version = app.getVersion();
-
-autoUpdater.setFeedURL('http://nodejs03.cleversite.ru/update/'+platform+'/'+version);
-
-autoUpdate.checkForUpdates();
-
-autoUpdate.on('update-available', function() {
-	console.log('update-available');
-	app.quit();
-});
-
-autoUpdate.on('error', function(e) {
-	console.log(e);
-});
-autoUpdate.on('checking-for-update', function() {
-	console.log('checking-for-update');
-});
-autoUpdate.on('update-not-available', function() {
-	console.log('update-not-available');
-});
-autoUpdate.on('update-downloaded', function() {
-	console.log('update-downloaded');
-});
 */
 
 
@@ -86,7 +58,8 @@ autoUpdate.on('update-downloaded', function() {
 
 
 
-
+app.commandLine.appendSwitch("disable-gpu")
+app.commandLine.appendArgument("disable-gpu")
 
 
 
@@ -94,9 +67,7 @@ app.on('ready', function () {
 
 
 
-
-
-
+	
 
 	win = new BrowserWindow({
 		height: 700,
@@ -108,7 +79,11 @@ app.on('ready', function () {
 		resizable: true,
 		alwaysOnTop: false,
 		fullscreen: false,
-		frame: true,
+		frame: false,
+		transparent: false,
+		webPreferences: {
+			
+		}
 	})
 
 
@@ -175,6 +150,37 @@ app.on('ready', function () {
 		win.setFullScreen(false)
 		win.show()
 	})
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	var tray = new Tray(__dirname + '/images/icon_tray.png');
+	const contextMenu = Menu.buildFromTemplate([
+		{label: 'Открыть Cleversite', click: function() {
+			win.show();
+		}},
+		{label: 'Выход из Cleversite', click: function() {
+			win.close();
+			app.quit();
+		}},
+	])
+	tray.setToolTip('This is my application.')
+	tray.setContextMenu(contextMenu)
+	
+	
+	
+	require('electron-context-menu')({
+		prepend: params => [{
+			label: 'Rainbow',
+			visible: params.mediaType === 'image'
+		}]
+	});
+	
 
 
 })
