@@ -13,19 +13,19 @@
     "electron-prebuilt": "^1.4.1"
   },
   "build": {
-        "appId": "com.electron.cleversite",
-        "app-category-type": "public.app-category.productivity",
-        "win": {
-            "iconUrl": "icons/assets-windows/icon.ico"
-        },
+    "appId": "com.electron.cleversite",
+    "win": {
+        "iconUrl": "icons/assets-windows/icon.ico"
+    },
 		"mac": {
-			"icon": "icons/assets-osx/icon.icns"
+			"icon": "icons/assets-osx/icon.icns",
+      "category": "public.app-category.business"
 		},
 		"dmg": {
-			"icon": "icons/icons-osx/dmg_icon.icns",
-			"background": "build/assets-osx/dmg_bg.png",
-			"icon-size": "80",
-			"title": "Cleversite",
+			"icon": "icons/assets-osx/dmg_icon.icns",
+			"background": "icons/assets-osx/dmg_bg.png",
+			"icon-size": 80,
+			"title": "Cleversite-pult",
 			"contents": [
 			  {
 				"x": 448,
@@ -41,10 +41,11 @@
 			  }
 			]
 		}
-    },
+  },
 	"scripts": {
 		"postinstall": "install-app-deps",
 		"start": "electron ./app --enable-logging",
 		"dev": "NODE_ENV='development' npm run start",
-		"dist": "build -m --x64 --ia32 deb"
+		"dist": "build -mw --x64 --ia32 deb"
 	}
+}
