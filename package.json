@@ -1,5 +1,6 @@
 {
   "name": "Cleversite-electron",
+  "productName": "cleversite",
   "version": "0.0.1",
   "author": {
     "name": "Serg",
@@ -15,9 +16,9 @@
 	"build": {
 		"appId": "com.electron.cleversite",
 		"win": {
-			"iconUrl": "icons/assets-windows/icon.ico"
+			"icon": "icons/assets-windows/icon.ico"
 		},
-		"squirrelWindows": {
+		"__squirrelWindows": {
 			"iconUrl": "https://raw.githubusercontent.com/Kanunik71/cleversite-electron/master/icons/assets-windows/icon.ico",
 			"remoteReleases": "https://github.com/Kanunik71/cleversite-electron"
 		},

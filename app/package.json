@@ -3,5 +3,9 @@
   "description": "Pult operators",
   "version": "0.0.1",
   "main": "main.js",
-  "author": "Kanunnikov Serg (kanunik71@yandex.ru)"
+  "author": "Kanunnikov Serg (kanunik71@yandex.ru)",
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-windows-updater": "^1.0.2"
+  }
 }

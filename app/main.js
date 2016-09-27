@@ -17,8 +17,41 @@ var win;
 var mainWindow = null;
 
 
+/*
+if (require("electron-squirrel-startup")) {
+    return;
+}
+*/
+if(process.platform == 'win32') {
+		var autoUpdater = require('electron-windows-updater');
+} else {
+		var autoUpdater = require('electron').autoUpdater;
+}
 
+var platform = os.platform() + '_' + os.arch();  // usually returns darwin_64
+var version = app.getVersion();
 
+autoUpdater.setFeedURL('http://nodejs03.cleversite.ru/update/'+platform+'/'+version);
+
+autoUpdater.checkForUpdates();
+
+autoUpdater.on('update-available', function() {
+	console.log('update-available');
+	app.quit();
+});
+
+autoUpdater.on('error', function(e) {
+	console.log(e);
+});
+autoUpdater.on('checking-for-update', function() {
+	console.log('checking-for-update');
+});
+autoUpdater.on('update-not-available', function() {
+	console.log('update-not-available');
+});
+autoUpdater.on('update-downloaded', function() {
+	console.log('update-downloaded');
+});
 /*
 var autoUpdater = require('electron').autoUpdater;
 var platform = os.platform() + '_' + os.arch();  // usually returns darwin_64
@@ -58,10 +91,6 @@ autoUpdate.on('update-downloaded', function() {
 
 
 app.on('ready', function () {
-
-
-
-
 
 
 
