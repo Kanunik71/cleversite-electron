@@ -256,22 +256,22 @@
 			<div class="content_visitors hide">
 				<div class="filter">
 					<div class="cont">
-						<div class="block clr">
-							<div class="text">Показать</div>
+						<div class="block clr" data="visitorsList">
+							<div class="text">Show</div>
 							<div class="sel min">
 								<select name="visitors_type" class="select">
-									<option value="all" selected="selected">Все посетители</option>
-									<option value="Dialogue">Учавствуют в диалоге</option>
-									<option value="InvitedToDialogue">Приглашенные к диалогу</option>
-									<option value="DialogueCancelled">Отказавшиеся от диалога</option>
+									<option value="all" selected="selected">All visitors</option>
+									<option value="Dialogue">In dialogue</option>
+									<option value="InvitedToDialogue">Invite dialogue</option>
+									<option value="DialogueCancelled">Cancel dialogue</option>
 								</select>
 							</div>
 						</div>
-						<div class="block clr">
-							<div class="text">На</div>
+						<div class="block clr" data="sitesList">
+							<div class="text">on</div>
 							<div class="sel min">
 								<select name="visitors_site" class="select">
-									<option value="all" selected="selected">Все сайты</option>
+									<option value="all" selected="selected">All sites</option>
 								</select>
 							</div>
 						</div>
@@ -285,43 +285,31 @@
 								<div class="th th2">
 									<div class="ico sortable" data="visits">
 										<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="20px" height="20px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 42 42" xmlns:xlink="http://www.w3.org/1999/xlink"> <g>  <path class="fil0" fill="#ABB2BA" fill-rule="nonzero" d="M5 3l7 0 0 5 -7 0c0,0 0,0 0,0 0,0 0,0 0,1l0 27c0,0 0,1 0,1 0,0 0,0 0,0l27 0c0,0 0,0 0,0 0,0 0,-1 0,-1l0 -6 5 0 0 6c0,2 -1,3 -2,4 -1,1 -2,2 -3,2l-27 0c-1,0 -2,-1 -3,-2 -1,-1 -2,-2 -2,-4l0 -27c0,-2 1,-3 2,-4 1,-1 2,-2 3,-2zm13 1l0 21 21 0 -7 -6 10 -10 -9 -9 -9 9 -6 -5z"/> </g></svg>
-										<div class="info">Кол-во визитов</div>
+										<div class="info">Visits coll</div>
 									</div>
 								</div>
 								<div class="th th3">
 									<div class="ico sortable" data="scan_pages">
 										<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24px" height="14px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 2196 1230" xmlns:xlink="http://www.w3.org/1999/xlink">    <path fill="#ABB2BA" class="fil0" d="M1098 0c-720,0 -1098,531 -1098,615 0,84 378,615 1098,615 721,0 1098,-531 1098,-615 0,-84 -377,-615 -1098,-615zm0 1088c-269,0 -488,-212 -488,-473 0,-261 219,-473 488,-473 270,0 488,212 488,473 0,261 -218,473 -488,473zm244 -473c0,131 -109,237 -244,237 -135,0 -244,-106 -244,-237 0,-131 109,-237 244,-237 73,0 -45,188 0,237 38,42 244,-60 244,0z"/></svg>
-										<div class="info">Кол-во просмотренных страниц</div>
+										<div class="info">Pages coll</div>
 									</div>
 								</div>
 								<div class="th th4">
 									<div class="ico sortable act" data="presence">
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 380 380" style="enable-background:new 0 0 380 380;" xml:space="preserve" width="20px" height="20px"><g>	<path d="M190,0C85.233,0,0,85.233,0,190s85.233,190,190,190s190-85.233,190-190S294.767,0,190,0z M190,340   c-82.71,0-150-67.29-150-150S107.29,40,190,40s150,67.29,150,150S272.71,340,190,340z" fill="#abb2ba"/>	<path d="M291.993,184.132h-74.197c-2.696-4.393-6.403-8.1-10.796-10.796V84.139c0-9.389-7.611-17-17-17c-9.389,0-17,7.611-17,17   v89.197c-9.345,5.737-15.593,16.05-15.593,27.796c0,17.972,14.622,32.593,32.593,32.593c11.746,0,22.059-6.248,27.796-15.593   h74.197c9.389,0,17-7.611,17-17C308.993,191.743,301.382,184.132,291.993,184.132z" fill="#abb2ba"/></g></svg>
-										<div class="info">Время на сайте</div>
+										<div class="info">Time on site</div>
 									</div>
 								</div>
 								<div class="th th4_5"></div>
-								<div class="th th5"><div class="text">Текущая страница</div></div>
+								<div class="th th5"><div class="text">Current page</div></div>
 								<div class="th th6"></div>
-								<div class="th th7"><div class="text">Город</div></div>
+								<div class="th th7"><div class="text">Town</div></div>
 								<div class="th th8"></div>
 							</div>
 						</div>
 						
 						<div class="scroll">
 							<div class="dinamic">
-								<div class="tr">
-									<div class="td">
-										<div class="ico"></div>
-									</div>
-									<div class="td">1</div>
-									<div class="td">14</div>
-									<div class="td">12ч 36м</div>
-									<div class="td"><a href="asdfsdf">Текущая страница олололо675676576574356436563 4536 56345 </a></div>
-									<div class="td"><div class="ico"></div></div>
-									<div class="td"><div class="town">Петропавловск Камчатский</div></div>
-									<div class="td"><div class="thread"></div></div>
-								</div>
 							</div>
 						</div>
 						
@@ -490,15 +478,15 @@
 					<div class="property_sv">
 						<div class="property_line_visual">
 							<input type="hidden" name="prop_theme" value="1" />
-							<div class="property_line_visual_name">Тема оформления</div>
+							<div class="property_line_visual_name">Theme all</div>
 							<div class="list">
 								<div class="el clr" data="1">
 									<div class="pic"><img src="./images/theme/theme_1.jpg" alt="" /></div>
-									<div class="name">Светлая</div>
+									<div class="name"></div>
 								</div>
 								<div class="el clr" data="2">
 									<div class="pic"><img src="./images/theme/theme_2.jpg" alt="" /></div>
-									<div class="name">Темная</div>
+									<div class="name"></div>
 								</div>
 							</div>
 						</div>

@@ -465,7 +465,7 @@ $(document).ready(function() {
 
 				self.closePult(1);
 
-				localStorage.setItem('user', JSON.stringify({login: '', password: '', remember: window.configApp.user.remember}));
+				localStorage.setItem('user', JSON.stringify({login: '', email: '', password: '', remember: window.configApp.user.remember}));
 
 				event.preventDefault();
 			});
@@ -478,8 +478,8 @@ $(document).ready(function() {
 					$('.content_block').removeClass('visitors');
 					$('.top_menu').find('li[data="clients"]').removeClass('act');
 					$('.top_menu').find('li[data="operators"]').addClass('act');
-					$('.content_left_block[data="clients"]').hide();
-					$('.content_left_block[data="operators"]').show();
+					$('.content_left_block[data="clients"]').addClass('hide');
+					$('.content_left_block[data="operators"]').removeClass('hide');
 					
 					if(!self.thread.jid) {
 						$('.content_info').removeClass('hide');
@@ -495,8 +495,8 @@ $(document).ready(function() {
 					$('.content_block').removeClass('visitors');
 					$('.top_menu').find('li[data="operators"]').removeClass('act');
 					$('.top_menu').find('li[data="clients"]').addClass('act');
-					$('.content_left_block[data="operators"]').hide();
-					$('.content_left_block[data="clients"]').show();
+					$('.content_left_block[data="operators"]').addClass('hide');
+					$('.content_left_block[data="clients"]').removeClass('hide');
 					
 					if(!self.thread.jid) {
 						$('.content_info').removeClass('hide');
@@ -512,8 +512,8 @@ $(document).ready(function() {
 					$('.content_block').addClass('visitors');
 					$('.top_menu').find('li[data="operators"]').removeClass('act');
 					$('.top_menu').find('li[data="clients"]').removeClass('act');
-					$('.content_left_block[data="operators"]').hide();
-					$('.content_left_block[data="clients"]').hide();
+					$('.content_left_block[data="operators"]').addClass('hide');
+					$('.content_left_block[data="clients"]').addClass('hide');
 					
 					$('.content_info').addClass('hide');
 					$('.content_visitors').removeClass('hide');
@@ -740,7 +740,7 @@ $(document).ready(function() {
 			if(window.configApp.user.remember == 1) {
 				$('input[name="auth_remember"]').prop('checked', true).attr('checked', 'checked');
 				
-				$('.auth_form').find('input[name="login"]').val(window.configApp.user.login);
+				$('.auth_form').find('input[name="login"]').val(window.configApp.user.email);
 				$('.auth_form').find('input[name="password"]').val(window.configApp.user.password);
 			} else {
 				$('input[name="auth_remember"]').prop('checked', false).removeAttr('checked');
@@ -754,6 +754,7 @@ $(document).ready(function() {
 				event.preventDefault();
 				var l = $(this).find('input[name="login"]');
 				var p = $(this).find('input[name="password"]');
+				var email = l.val();
 				var login = l.val().replace(/[@.-]/g,'_');
 				var password = p.val();
 				var r = $(this).find('input[name="auth_remember"]').prop('checked');
@@ -761,14 +762,14 @@ $(document).ready(function() {
 				window.configApp.user.remember = r ? 1 : 0;
 				
 				self.user = {login: login, password: password};
-				self.connecting_main(login, password);
+				self.connecting_main(login, password, email);
 			});
 
 			$('.auth_reset').on('click', function() {
 
 				self.socket.emit('message', {type: 'disconnect'});
 
-				localStorage.setItem('user', JSON.stringify({login: '', password: '', remember: window.configApp.user.remember}));
+				localStorage.setItem('user', JSON.stringify({login: '', email: '', password: '', remember: window.configApp.user.remember}));
 				
 			});
 
@@ -780,13 +781,13 @@ $(document).ready(function() {
 			if(isNodeWebkit) {
 				if(window.configApp.desktop.prop_autoIn) {
 					if(window.configApp.user.login != '' && window.configApp.user.password != '') {
-						self.connecting_main(window.configApp.user.login, window.configApp.user.password);
+						self.connecting_main(window.configApp.user.login, window.configApp.user.password, window.configApp.user.email);
 						_in = true;
 					}
 				}
 			} else {
 				if(window.configApp.user.login != '' && window.configApp.user.password != '') {
-					self.connecting_main(window.configApp.user.login, window.configApp.user.password);
+					self.connecting_main(window.configApp.user.login, window.configApp.user.password, window.configApp.user.email);
 					_in = true;
 				}
 			}
@@ -862,14 +863,14 @@ $(document).ready(function() {
 
 
 
-		this.connecting_main = function(login, password) {
+		this.connecting_main = function(login, password, email) {
 
 			$('.auth_form_parent').find('.form').addClass('hide');
 			$('.auth_form_parent').find('.auth_error').addClass('hide');
 			$('.auth_form_parent').find('.auth_block').addClass('hide');
 			$('.auth_form_parent').find('.auth_wait').removeClass('hide');
-
-			self.socket.emit('message', {type: 'connect', login: login, password: password});
+console.log({type: 'connect', login: login, password: password, email: email});
+			self.socket.emit('message', {type: 'connect', login: login, password: password, email: email});
 
 
 		},
@@ -908,7 +909,7 @@ $(document).ready(function() {
 				if(msg.act=='connect') {//успешное соединение
 
 					
-					localStorage.setItem('user', JSON.stringify({login: msg.login, password: msg.password, remember: window.configApp.user.remember}));
+					localStorage.setItem('user', JSON.stringify({login: msg.login, password: msg.password, email: msg.email, remember: window.configApp.user.remember}));
 					
 
 					self.user.jid = msg.login+'@'+self.domen;
@@ -1197,7 +1198,6 @@ $(document).ready(function() {
 					$('.auth_form_parent').find('.auth_block').addClass('hide');
 					$('.auth_form_parent').find('.auth_wait').addClass('hide');
 					
-					
 					$('#content').addClass('hide');
 					$('.preloader').addClass('hide');
 
@@ -1215,6 +1215,14 @@ $(document).ready(function() {
 					$('.content_bottom').find('.action[data="send_email"]').addClass('disabled');
 
 					$('.property').addClass('hide');
+					
+					
+					$('.content_block').removeClass('visitors');
+					
+					$('.content_block').find('.left_menu').find('.el.act').removeClass('act');
+					$('.content_block').find('.left_menu').find('.el[data="clients"]').addClass('act');
+					$('.content_block').find('.content_left_block').addClass('hide');
+					$('.content_block').find('.content_left_block[data="clients"]').removeClass('hide');
 
 					$('.dialog_window').remove();
 					$('.wall').remove();
@@ -1225,16 +1233,13 @@ $(document).ready(function() {
 						$('.auth_form_parent').find('.auth_error').removeClass('hide');
 					}
 
+	
 					
+			
 					
-					
-
 					if(status == 2) {//ошибка авторазации
-						localStorage.setItem('user', JSON.stringify({login: '', password: '', remember: window.configApp.user.remember}));
+						localStorage.setItem('user', JSON.stringify({login: '', email: '', password: '', remember: window.configApp.user.remember}));
 					}
-
-
-
 
 					for(var key in self.delayFunc.redirect) {
 						clearTimeout(self.delayFunc.redirect[key]);
@@ -1279,11 +1284,11 @@ $(document).ready(function() {
 		this.setStatus = function(s, ignoreForm) {
 
 			if(s == 'away') {
-
+				
 				if(window.configApp.prop.prop_closeThreadChangeStatus == 1) {
 					if(self.myDialogList.length == 0) {
 						self.socket.emit('message', {type: 'presence', status: s});
-						$('.status_circle').parent().removeClass('on').addClass('off');
+						$('.top_status').removeClass('on').addClass('off');
 						self.user.status = s;
 
 					} else {
@@ -1291,7 +1296,7 @@ $(document).ready(function() {
 							self.closeAllThread();
 
 							self.socket.emit('message', {type: 'presence', status: s});
-							$('.status_circle').parent().removeClass('on').addClass('off');
+							$('.top_status').removeClass('on').addClass('off');
 							self.user.status = s;
 
 						} else {
@@ -1300,12 +1305,12 @@ $(document).ready(function() {
 					}
 				} else {
 					self.socket.emit('message', {type: 'presence', status: s});
-					$('.status_circle').parent().removeClass('on').addClass('off');
+					$('.top_status').removeClass('on').addClass('off');
 					self.user.status = s;
 				}
 			} else {
 				self.socket.emit('message', {type: 'presence', status: s});
-				$('.status_circle').parent().removeClass('off').addClass('on');
+				$('.top_status').removeClass('off').addClass('on');
 				self.user.status = s;
 			}
 
@@ -1343,8 +1348,8 @@ $(document).ready(function() {
 			$('.left_list_line.act').removeClass('act');
 			$('.left_list_line[jid="'+threadJid+'"]').addClass('act');
 
-			$('.content_left_block').hide();
-			$('.content_left_block[data="'+ $('.left_list_line[jid="'+threadJid+'"]').parent().attr('data') +'"]').show();
+			$('.content_left_block').addClass('hide');
+			$('.content_left_block[data="'+ $('.left_list_line[jid="'+threadJid+'"]').parent().attr('data') +'"]').removeClass('hide');
 
 			$('.content_left').find('.left_menu').find('.act').removeClass('act');
 			if($.inArray('operators', self.userList[threadJid].groups) != -1) {
@@ -3762,6 +3767,7 @@ $(document).ready(function() {
 			show:  function() {
 				if(!$('.wall').size()) {
 					$('body').append('<div class="wall"></div>');
+					setTimeout(function() {$('body').find('.wall').addClass('animate');},111);
 				}
 			}
 		}
@@ -4899,18 +4905,30 @@ $(document).ready(function() {
 			$('.property').find('.property_right').find('.property_block[data="report"]').find('.property_line_checkbox_info').html(window.langClever.lang[window.configApp.local].property.prop_report.text);
 
 			$('.property').find('.property_right').find('.property_block[data="about"]').find('span[data="text"]').html(window.langClever.lang[window.configApp.local].property.prop_about.text);
+			
+			$('.property').find('.property_right').find('.property_block[data="visual"]').find('.property_line_visual_name').html(window.langClever.lang[window.configApp.local].property.prop_theme.text);
 
 			$('.property').find('.property_bottom').find('.submit').html(window.langClever.lang[window.configApp.local].save);
 			$('.property').find('.property_bottom').find('.gray_sv').html(window.langClever.lang[window.configApp.local].cancel);
-
+			
+			
+			
+			$('.content_visitors').find('.filter').find('.block[data="visitorsList"]').find('.text').html(window.langClever.lang[window.configApp.local].visits.show);
+			$('.content_visitors').find('.filter').find('.block[data="visitorsList"]').find('option[value="all"]').html(window.langClever.lang[window.configApp.local].visits.allVisitirs);
+			$('.content_visitors').find('.filter').find('.block[data="visitorsList"]').find('option[value="Dialogue"]').html(window.langClever.lang[window.configApp.local].visits.inDialogue);
+			$('.content_visitors').find('.filter').find('.block[data="visitorsList"]').find('option[value="InvitedToDialogue"]').html(window.langClever.lang[window.configApp.local].visits.invite);
+			$('.content_visitors').find('.filter').find('.block[data="visitorsList"]').find('option[value="DialogueCancelled"]').html(window.langClever.lang[window.configApp.local].visits.cancel);
+			
+			$('.content_visitors').find('.filter').find('.block[data="sitesList"]').find('text').html(window.langClever.lang[window.configApp.local].visits.on);
+			$('.content_visitors').find('.filter').find('.block[data="sitesList"]').find('option[value="all"]').html(window.langClever.lang[window.configApp.local].visits.allSites);
+			
+			$('.content_visitors').find('.table').find('.th2').find('.info').html(window.langClever.lang[window.configApp.local].visits.visitsColl);
+			$('.content_visitors').find('.table').find('.th3').find('.info').html(window.langClever.lang[window.configApp.local].visits.pagesColl);
+			$('.content_visitors').find('.table').find('.th4').find('.info').html(window.langClever.lang[window.configApp.local].visits.timeOnSite);
+			$('.content_visitors').find('.table').find('.th5').find('.text').html(window.langClever.lang[window.configApp.local].visits.currentPage);
+			$('.content_visitors').find('.table').find('.th7').find('.text').html(window.langClever.lang[window.configApp.local].visits.town);
 
 		}
-
-
-
-
-
-
 
 
 		this.addFiles = function(files) {

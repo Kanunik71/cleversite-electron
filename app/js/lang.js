@@ -140,6 +140,23 @@ window.langClever = {
 				'prop_about': {
 					'text': 'Версия приложения: ',
 				},
+				'prop_theme': {
+					'text': 'Тема оформления'
+				}
+			},
+			'visits': {
+				'show': 'Показать',
+				'allVisitirs': 'Все посетители',
+				'inDialogue': 'Учавствуют в диалоге',
+				'invite': 'Приглашенные к диалогу',
+				'cancel': 'Отказавшиеся от диалога',
+				'on': 'На',
+				'allSites': 'Все сайты',
+				'visitsColl': 'Кол-во визитов',
+				'pagesColl': 'Кол-во просмотренных страниц',
+				'timeOnSite': 'Время на сайте',
+				'currentPage': 'Текущая страница',
+				'town': 'Город',
 			}
 		},
 		
@@ -284,6 +301,23 @@ window.langClever = {
 				'prop_about': {
 					'text': 'Version app: ',
 				},
+				'prop_theme': {
+					'text': 'Theme list'
+				}
+			},
+			'visits': {
+				'show': 'Show',
+				'allVisitirs': 'All visitors',
+				'inDialogue': 'In dialogue',
+				'invite': 'Invite dialogue',
+				'cancel': 'Cancel dialogue',
+				'on': 'on',
+				'allSites': 'All sites',
+				'visitsColl': 'Visits coll',
+				'pagesColl': 'Pages coll',
+				'timeOnSite': 'Time on site',
+				'currentPage': 'Current page',
+				'town': 'Town',
 			}
 		},
 	}
