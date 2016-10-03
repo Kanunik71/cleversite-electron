@@ -485,7 +485,12 @@ body.desctop .top_bar{display:block;}
 .content_visitors .table .tr .td.td5 a{color:#5789bb;}
 .content_visitors .table .tr .td.td6{}
 .content_visitors .table .tr .td.td6 .ico{width:20px;height:20px;display:block;margin:0 auto;}
-.content_visitors .table .tr .td.td6 .ico.chrome{background:url(../images/browser/browser_chrome.png) 0 0 no-repeat;}
+.content_visitors .table .tr .td.td6 .ico.chrome{background:url(../images/browser/browser_chrome.png) 0 0 no-repeat;background-size:100% 100%;}
+.content_visitors .table .tr .td.td6 .ico.opera{background:url(../images/browser/browser_opera.png) 0 0 no-repeat;background-size:100% 100%;}
+.content_visitors .table .tr .td.td6 .ico.other{background:url(../images/browser/browser_other.png) 0 0 no-repeat;background-size:100% 100%;}
+.content_visitors .table .tr .td.td6 .ico.ie{background:url(../images/browser/browser_ie.png) 0 0 no-repeat;background-size:100% 100%;}
+.content_visitors .table .tr .td.td6 .ico.firefox{background:url(../images/browser/browser_firefox.png) 0 0 no-repeat;background-size:100% 100%;}
+.content_visitors .table .tr .td.td6 .ico.safari{background:url(../images/browser/browser_safari.png) 0 0 no-repeat;background-size:100% 100%;}
 .content_visitors .table .tr .td.td7{}
 .content_visitors .table .tr .td.td7 .location {position:relative;}
 .content_visitors .table .tr .td.td7 .location .country {}
