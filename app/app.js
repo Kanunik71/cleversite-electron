@@ -12,7 +12,7 @@ var version = '0.0.1';
 console.log('new App ' + version);
 
 
-var MODE  = 'developer';
+var MODE  = 'development';
 var isNodeWebkit = ((/^file:/.test(window.location.protocol)) || (/^chrome-extension:/.test(window.location.protocol))) ? true : false;
 
 var refresh = new Date().getTime();
@@ -36,12 +36,15 @@ window.configApp = {
 		prop_sendReport: 1,
 	}),
 	prop: {},
+	theme: localStorage.getItem("theme") ? localStorage.getItem("theme") : 1,
 	fastPhrase: {},
-	user: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : ({login: '', password: ''}),
+	user: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : ({login: '', password: '', remember: 1}),
 	windowState: localStorage.getItem("windowState") ? JSON.parse(localStorage.getItem("windowState")) : {},
 	dev: false
 }
 
+
+window.document.body.className = 'theme_'+ window.configApp.theme + (window.document.body.className ? ' '+ window.document.body.className : '');
 
 
 if(isNodeWebkit) {

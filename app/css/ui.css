@@ -895,16 +895,28 @@ body .ui-tooltip {
 .ui-selectmenu-menu ul li.ui-menu-item .ui-state-active{margin:0;background:#ffffff;}
 .ui-selectmenu-menu ul li.ui-menu-item .ui-state-active{margin:0;background:#e6e6e6;color:#7ab51d;}
 
+.min .ui-selectmenu-button{border: none;
+    background: none;
+    outline: none;
+    border-radius: 0;
+    height: 18px;
+    padding: 0px 8px;
+}
+.min .ui-selectmenu-button.ui-selectmenu-button-open {background:none;}
+.min .ui-selectmenu-button .ui-selectmenu-text { border-bottom: 1px dotted #404040;}
+   
+
 .bolder .ui-checkboxradio-label {font-weight:600;}
 
 .ui-checkboxradio-label {position:relative;font-size:14px;line-height:16px;color:#404040;padding:4px 10px 4px 35px;text-align:left;}
-.ui-checkboxradio-label .ui-checkboxradio-icon{border:2px solid #cbcbcb;border-radius:5px;background:none center center no-repeat #e6e6e6;height:25px;width:25px;position:absolute;left:0;top:0;box-shadow:none;margin:0;}
-.ui-checkboxradio-label.ui-checkboxradio-checked .ui-checkboxradio-icon{background-image:url(../images/check.png);}
+.ui-checkboxradio-label .ui-checkboxradio-icon{border:2px solid #cbcbcb;border-radius:5px;background:none center center no-repeat #fff;height:25px;width:25px;position:absolute;left:0;top:0;box-shadow:none;margin:0;}
+.ui-checkboxradio-label.ui-checkboxradio-checked .ui-checkboxradio-icon{background-image:url(../images/check.png);background-color:#e6e6e6;}
 
 
 .ui-checkboxradio-label.ui-checkboxradio-radio-label{position:relative;font-size:14px;line-height:16px;color:#404040;padding:4px 10px 4px 35px;}
-.ui-checkboxradio-label.ui-checkboxradio-radio-label .ui-checkboxradio-icon{border:none;border-radius:0px;background:url(../images/radio.png) 0 -30px no-repeat;height:25px;width:25px;position:absolute;left:0;top:0;box-shadow:none;margin:0;}
-.ui-checkboxradio-label.ui-checkboxradio-radio-label.ui-checkboxradio-checked .ui-checkboxradio-icon{background:url(../images/radio.png) 0 0px no-repeat;border:none;height:25px;width:25px;}
+.ui-checkboxradio-label.ui-checkboxradio-radio-label .ui-checkboxradio-icon{border:none;border-radius:50%;background:#ffffff;border:2px solid #cbcbcb;height:25px;width:25px;position:absolute;left:0;top:0;box-shadow:none;margin:0;}
+.ui-checkboxradio-label.ui-checkboxradio-radio-label.ui-checkboxradio-checked .ui-checkboxradio-icon{border:2px solid #cbcbcb;background:#e6e6e6;height:25px;width:25px;}
+.ui-checkboxradio-label.ui-checkboxradio-radio-label.ui-checkboxradio-checked .ui-checkboxradio-icon:after{content:'';background:#7ab51d;border:none;height:10px;width:10px;border-radius:50%;top:50%;left:50%;margin:-5px 0 0 -5px;position:absolute;}
 
 
 

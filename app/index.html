@@ -28,42 +28,73 @@
 	
 	
 	
-	<div class="preloader">
-		<div class="preloader_img"></div>
-	</div>
-	
-	
-	
-	
-	
+<div class="preloader preload"></div>
+		
 
-  
+	
 <div class="relat auth_form_parent hide">
-    <div id="auth_form">
-      <div class="auth_form_cont"><img src="images/logo_login.png" alt="CleverSite" class="auth_form_logo"/>
-        <form id="auth_form_form" action="" method="POST" autocomplete="false">
-          <div class="auth_form_form_f_1">
-            <div class="auth_form_form_block login">
-              <div class="ico"></div>
-              <input type="email" value="" name="login" placeholder="Email" required="" class="auth_input"/>
-            </div>
-            <div class="auth_form_form_block password">
-              <div class="ico"></div>
-              <input type="password" value="" name="password" placeholder="Пароль" required="" class="auth_input"/>
-            </div>
-            <button type="submit" name="submit" class="btn auth_smb submit disabled_submit">Enter</button>
-            <div class="auth_form_cont_text"></div>
-          </div>
-          <div class="auth_form_form_f_2 hide">
-            <div class="auth_form_form_f_2_t">Logging in to the server ...</div>
-            <div name="submit" class="btn auth_smb submit auth_reset">Cancel</div>
-          </div>
-          <div class="clear"></div>
-          <form></form>
-        </form>
-      </div>
+    <div class="auth_form">
+	
+			<div class="top">
+				
+			</div>
+			
+			<div class="cont">
+			
+				<form class="form" action="" method="POST" autocomplete="false">
+					
+					<div class="block login">
+						<div class="ico">
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 350 350" style="enable-background:new 0 0 350 350;" xml:space="preserve" width="16px" height="20px"><g><path d="M175,171.173c38.914,0,70.463-38.318,70.463-85.586C245.463,38.318,235.105,0,175,0s-70.465,38.318-70.465,85.587   C104.535,132.855,136.084,171.173,175,171.173z" fill="#86909b"/>	<path d="M41.909,301.853C41.897,298.971,41.885,301.041,41.909,301.853L41.909,301.853z" fill="#86909b"/>	<path d="M308.085,304.104C308.123,303.315,308.098,298.63,308.085,304.104L308.085,304.104z" fill="#86909b"/>	<path d="M307.935,298.397c-1.305-82.342-12.059-105.805-94.352-120.657c0,0-11.584,14.761-38.584,14.761   s-38.586-14.761-38.586-14.761c-81.395,14.69-92.803,37.805-94.303,117.982c-0.123,6.547-0.18,6.891-0.202,6.131   c0.005,1.424,0.011,4.058,0.011,8.651c0,0,19.592,39.496,133.08,39.496c113.486,0,133.08-39.496,133.08-39.496   c0-2.951,0.002-5.003,0.005-6.399C308.062,304.575,308.018,303.664,307.935,298.397z" fill="#86909b"/></g></svg>
+						</div>
+						<input type="email" value="" name="login" placeholder="Email" required="" class="auth_input"/>
+					</div>
+					<div class="block password">
+						<div class="ico">
+							<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="14px" height="20px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 7804 11369" xmlns:xlink="http://www.w3.org/1999/xlink">   <path fill="#86909B" class="fil0" d="M7375 4900l0 -1427c0,-1915 -1558,-3473 -3473,-3473 -1915,0 -3472,1558 -3472,3473l0 1414c-216,82 -430,268 -430,636l0 1944c0,2152 1751,3902 3902,3902 2152,0 3902,-1750 3902,-3902l0 -1944c0,-349 -208,-535 -429,-623zm-2731 4177c12,65 -32,118 -98,118l-1273 0c-66,0 -110,-53 -98,-118l204 -1081c-156,-142 -253,-346 -253,-574 0,-428 347,-776 776,-776 429,0 777,348 777,776 0,222 -93,421 -241,562l206 1093zm1533 -4246l-4550 0 0 -1358c0,-1255 1021,-2276 2275,-2276 1255,0 2275,1021 2275,2276l0 1358z"/></svg>
+						</div>
+						<input type="password" value="" name="password" placeholder="Пароль" required="" class="auth_input"/>
+					</div>
+					
+					<div class="line clr">
+						<div class="checkbox">
+							<input type="checkbox" value="1" name="auth_remember" id="auth_remember" />
+							<label for="auth_remember">Remember</label>
+						</div>
+						<div class="link">
+							<a target="_blank" href="//cleversite.ru/personal/?forgot_password=yes">Remember password</a>
+						</div>
+					</div>
+					
+					<button type="submit" name="submit" class="btn auth_smb submit disabled_submit">Enter</button>
+
+					<div class="clear"></div>
+				</form>
+				
+				<div class="auth_wait hide">
+					<div class="text">Logging in to the server ...</div>
+					<div name="submit" class="btn auth_smb submit auth_reset">Cancel</div>
+				</div>
+				
+				<div class="auth_error hide"></div>
+				
+				<div class="auth_block hide">
+					<div class="text"><span>Учётная запись оператора<br/>заблокирована</span></div>
+					<div class="text">Тестовый период на тарифе Профи закончился.<br/>Вам нужно <a href="//cleversite.ru/personal/">оплатить счет</a> за продолжение работы</div>
+					<div class="text"><span>Возникли вопросы?</span><br/><a href="mailto:help@cleversite.ru">Напишите</a>, пожалуйста, нашему консультанту</div>
+				</div>
+				
+				
+			</div>
+
     </div>
-</div>
+</div>	
+	
+	
+	
+	
+	
+  
   
   
   
@@ -92,23 +123,33 @@
 			<div class="right_block">
 				<div class="user_block_top">
 					<div class="user_block hide">
-						<div class="avatar orange"></div>
-						<div class="name"></div>
+						
 					</div>
+					
 					<div class="user_info hide">
+						<div class="ico"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 45.395 45.395" style="enable-background:new 0 0 45.395 45.395;" xml:space="preserve"><g><path d="M22.683,16.977c-2.028,0-3.465,1.646-3.465,3.672v12.485c0,2.028,1.437,3.671,3.465,3.671    c2.027,0,3.463-1.643,3.463-3.671V20.649C26.146,18.621,24.71,16.977,22.683,16.977z" fill="#86909b"/><path d="M22.698,7.432c-2.095,0-3.795,1.699-3.795,3.795c0,2.095,1.7,3.793,3.795,3.793c2.093,0,3.793-1.698,3.793-3.793    C26.491,9.131,24.791,7.432,22.698,7.432z" fill="#86909b"/><path d="M22.698,0C10.181,0,0,10.183,0,22.697c0,12.516,10.182,22.697,22.698,22.697c12.516,0,22.696-10.183,22.696-22.697    S35.214,0,22.698,0z M22.698,40.447c-9.787,0-17.749-7.963-17.749-17.75c0-9.787,7.962-17.749,17.749-17.749    c9.786,0,17.747,7.962,17.747,17.749C40.445,32.484,32.484,40.447,22.698,40.447z" fill="#86909b"/></g></svg></div>
 						<div class="text">
-							
+							<div class="site"><span class="import" data="site"></span></div>
+							<div class="visit"><span data="visits-text">Визитов</span>: <span class="import" data="visits"></span></div>
+							<div class="dialog"><span data="dialogs-text">Диалогов</span>: <span class="import" data="dialogs"></span></div>
+							<div class="clr"></div>
+							<div class="watch"><span data="watch-text">Смотрит</span>: <a class="import" data="watch" href="/"></a></div>
 						</div>
 						<div class="extended">
-							<div><span data="begin-text">Page the dialogue:</span> <br/><a data="begin" class="import"></a></div>
-							<div><span data="source-text">Transition source:</span> <br/><span data="source" class="import"></span></div>
-							<div><span data="location-text">Location:</span> <span data="location" class="import"></span></div>
-							<div><span data="address-text">IP-address:</span> <span data="address" class="import"></span></div>
-							<div><span data="provider-text">Service:</span> <span data="provider" class="import"></span></div>
-							<div><span data="browser-text">Browser:</span> <span data="browser" class="import"></span></div>
-							<div><span data="visits-text">Number of visits:</span> <span data="visits" class="import"></span></div>
-							<div><span data="dialogs-text">Number of dialogues:</span> <span data="dialogs" class="import"></span></div>
-							<div><span data="scan_pages-text">The number of pages viewed per visit:</span> <span data="scan_pages" class="import"></span></div>
+							<div class="istok"><span class="text" data="istok-text">Источник</span>: <span class="import" data="istok"></span></div>
+							<div class="browser"><span class="text" data="browser-text">Браузер</span>: <span class="import" data="browser"></span></div>
+							<div class="ip"><span class="text" class="ip-text">IP-адрес</span>: <span class="import" data="ip"></span></div>
+							
+							<div class="clr"></div>
+							<div class="sep"></div>
+							
+							<div class="history">
+								<div class="h">История посещений:</div>
+								<div class="list">
+									
+								</div>
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -116,16 +157,18 @@
 				
 				<div class="menu top_menu">
 					<ul>
-						<li class="disabled" data="transfer">Transfer dialog</li>
-						<li class="disabled" data="block">Block</li>
-						<li class="disabled" data="send_email">Send email</li>
-						<li class="" data="operators">Operators</li>
-						<li class="" data="clients">Clients</li>
-						<li class="" data="visitors">Visitors</li>
-						<li class="sep"></li>
-						<!--<li data="cobrowe">Cobrowse</li>-->
-						<li data="property">Property</li>
-						<li data="exit">Exit</li>
+						<li data="property">
+							<div class="ico">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 24 24" enable-background="new 0 0 24 24" width="18px" height="16px">  <path d="m24,13v-2c0-0.6-0.4-1-1-1h-1.8c-0.2,0-0.4-0.2-0.5-0.4-0.2-0.7-0.5-1.4-0.9-2.1-0.1-0.2-0.1-0.4 0.1-0.6l1.3-1.3c0.4-0.4 0.4-1 0-1.4l-1.4-1.4c-0.4-0.4-1-0.4-1.4,0l-1.3,1.3c-0.2,0.2-0.4,0.2-0.6,0.1-0.6-0.4-1.3-0.7-2.1-0.9-0.2-0.1-0.4-0.2-0.4-0.5v-1.8c0-0.6-0.4-1-1-1h-2c-0.6,0-1,0.4-1,1v1.8c0,0.2-0.2,0.4-0.4,0.5-0.7,0.2-1.4,0.5-2.1,0.9-0.2,0.1-0.4,0.1-0.6-0.1l-1.3-1.3c-0.4-0.4-1-0.4-1.4,0l-1.4,1.4c-0.4,0.4-0.4,1 0,1.4l1.3,1.3c0.2,0.2 0.2,0.4 0.1,0.6-0.4,0.6-0.7,1.3-0.9,2.1-0.1,0.2-0.2,0.4-0.5,0.4h-1.8c-0.6,0-1,0.4-1,1v2c0,0.6 0.4,1 1,1h1.8c0.2,0 0.4,0.2 0.5,0.4 0.2,0.7 0.5,1.4 0.9,2.1 0.1,0.2 0.1,0.4-0.1,0.6l-1.3,1.3c-0.4,0.4-0.4,1 0,1.4l1.4,1.4c0.4,0.4 1,0.4 1.4,0l1.3-1.3c0.2-0.2 0.4-0.2 0.6-0.1 0.6,0.4 1.3,0.7 2.1,0.9 0.2,0.1 0.4,0.2 0.4,0.5v1.8c0,0.6 0.4,1 1,1h2c0.6,0 1-0.4 1-1v-1.8c0-0.2 0.2-0.4 0.4-0.5 0.7-0.2 1.4-0.5 2.1-0.9 0.2-0.1 0.4-0.1 0.6,0.1l1.3,1.3c0.4,0.4 1,0.4 1.4,0l1.4-1.4c0.4-0.4 0.4-1 0-1.4l-1.3-1.3c-0.2-0.2-0.2-0.4-0.1-0.6 0.4-0.6 0.7-1.3 0.9-2.1 0.1-0.2 0.2-0.4 0.5-0.4h1.8c0.6-3.55271e-15 1-0.4 1-1zm-12,4c-2.8,0-5-2.2-5-5s2.2-5 5-5 5,2.2 5,5-2.2,5-5,5z" fill="#86909b"/></svg>
+
+							</div>
+							<div class="test">Property</div></li>
+						<li data="exit">
+							<div class="ico">
+								<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="19px" height="17px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 224 195" xmlns:xlink="http://www.w3.org/1999/xlink"> <g>  <path class="fil0" fill="#86909B" d="M0 0l11 0 92 0 22 0 0 11 0 35 -22 0 0 -35 -92 0 0 173 92 0 0 -35 23 0 0 35 0 11 -23 0 -103 0 0 -7 0 0 0 -177 0 -11zm81 69l66 0 0 -36 77 63 -77 66 0 -37 -66 0 0 -56z"/> </g></svg>
+							</div>
+							<div class="test">Exit</div>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -134,6 +177,11 @@
 	
     <div class="content_block">
 		<div class="content_left">
+			<div class="left_menu">
+				<div class="el act" data="clients">Clients</div>
+				<div class="el" data="operators">Operators</div>
+				<div class="el" data="visitors">Visitors</div>
+			</div>
 			<div class="user_list">
 				<div data="clients" class="content_left_block"></div>
 				<div data="operators" class="content_left_block hide"></div>
@@ -152,6 +200,7 @@
 					<div class="content_section">
 						<div id="data_scroll">
 							<div id="data">
+							
 							</div>
 						</div>
 					</div>
@@ -160,28 +209,38 @@
 				<div class="content_bottom">
 					<div class="content_bottom_dialog">
 						<div class="content_bottom_textarea">
-							<div class="fast_phrase">/..</div>
-							
-							<div id="msgwnd" contenteditable="true" spellcheck="true" placeholder="Write your message" tabindex="0" maxlength="1000" rows="4"></div>
+							<div class="relat">
+								<div class="fast_phrase"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 511.626 511.626" style="enable-background:new 0 0 511.626 511.626;" xml:space="preserve"><g><path d="M301.927,327.605c30.926-13.038,55.34-30.785,73.23-53.248c17.888-22.458,26.833-46.915,26.833-73.372    c0-26.458-8.945-50.917-26.84-73.376c-17.888-22.459-42.298-40.208-73.228-53.249c-30.93-13.039-64.571-19.556-100.928-19.556    c-36.354,0-69.995,6.521-100.927,19.556c-30.929,13.04-55.34,30.789-73.229,53.249C8.947,150.072,0,174.527,0,200.986    c0,22.648,6.767,43.975,20.28,63.96c13.512,19.981,32.071,36.829,55.671,50.531c-1.902,4.572-3.853,8.754-5.852,12.566    c-2,3.806-4.377,7.467-7.139,10.991c-2.76,3.525-4.899,6.283-6.423,8.275c-1.523,1.998-3.997,4.812-7.425,8.422    c-3.427,3.617-5.617,5.996-6.567,7.135c0-0.191-0.381,0.24-1.143,1.287c-0.763,1.047-1.191,1.52-1.285,1.431    c-0.096-0.103-0.477,0.373-1.143,1.42c-0.666,1.048-1,1.571-1,1.571l-0.715,1.423c-0.282,0.575-0.476,1.137-0.57,1.712    c-0.096,0.567-0.144,1.19-0.144,1.854s0.094,1.28,0.288,1.854c0.381,2.471,1.475,4.466,3.283,5.996    c1.807,1.52,3.756,2.279,5.852,2.279h0.857c9.515-1.332,17.701-2.854,24.552-4.569c29.312-7.61,55.771-19.797,79.372-36.545    c17.129,3.046,33.879,4.568,50.247,4.568C237.353,347.16,270.998,340.645,301.927,327.605z" fill="#7c8692"/><path d="M491.354,338.166c13.518-19.889,20.272-41.247,20.272-64.09c0-23.414-7.146-45.316-21.416-65.68    c-14.277-20.362-33.694-37.305-58.245-50.819c4.374,14.274,6.563,28.739,6.563,43.398c0,25.503-6.368,49.676-19.129,72.519    c-12.752,22.836-31.025,43.01-54.816,60.524c-22.08,15.988-47.205,28.261-75.377,36.829    c-28.164,8.562-57.573,12.848-88.218,12.848c-5.708,0-14.084-0.377-25.122-1.137c38.256,25.119,83.177,37.685,134.756,37.685    c16.371,0,33.119-1.526,50.251-4.571c23.6,16.755,50.06,28.931,79.37,36.549c6.852,1.718,15.037,3.237,24.554,4.568    c2.283,0.191,4.381-0.476,6.283-1.999c1.903-1.522,3.142-3.61,3.71-6.272c-0.089-1.143,0-1.77,0.287-1.861    c0.281-0.09,0.233-0.712-0.144-1.852c-0.376-1.144-0.568-1.715-0.568-1.715l-0.712-1.424c-0.198-0.376-0.52-0.903-0.999-1.567    c-0.476-0.66-0.855-1.143-1.143-1.427c-0.28-0.284-0.705-0.763-1.28-1.424c-0.568-0.66-0.951-1.092-1.143-1.283    c-0.951-1.143-3.139-3.521-6.564-7.139c-3.429-3.613-5.899-6.42-7.422-8.418c-1.523-1.999-3.665-4.757-6.424-8.282    c-2.758-3.518-5.14-7.183-7.139-10.991c-1.998-3.806-3.949-7.995-5.852-12.56C459.289,374.859,477.843,358.062,491.354,338.166z" fill="#7c8692"/></g></svg></div>
+								
+								<div id="msgwnd" contenteditable="true" spellcheck="true" placeholder="Write your message" tabindex="0" maxlength="1000" rows="4"></div>
 
-							<div class="btns">
-								<div class="file disabled"></div>
-								<div class="smile disabled"></div>
-							</div>
-						</div>
-						
-						<div class="send disabled"></div>
-						
-						<div class="smiles_list hide">
-							<div class="smiles_list_cont clr">
-							</div>
-						</div>
-						<div class="phrase_list hide">
-							<div class="phrase_list_cont clr">
-								<div class="block clr">
+								<div class="btns">
+									<div class="file disabled"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 478.353 478.354" style="enable-background:new 0 0 478.353 478.354;" xml:space="preserve"><g><path d="M462.854,224.022L248.397,438.461c-53.216,53.19-139.781,53.19-192.984,0c-53.219-53.214-53.219-139.779,0-192.993   L269.851,31.053c41.379-41.404,108.72-41.404,150.126,0c41.369,41.371,41.369,108.717,0,150.089L248.751,352.315   c-14.26,14.482-33.313,22.478-53.676,22.565c-40.674,0.178-76.26-35.357-76.111-76.11c0.072-20.315,8.116-39.386,22.568-53.657   L312.737,73.934l21.441,21.44L162.621,266.908c-8.545,8.56-13.285,19.863-13.329,31.983c-0.105,24.433,21.235,45.779,45.667,45.667   c12.099-0.032,23.457-4.77,31.998-13.329l171.575-171.531c29.557-29.554,29.557-77.648,0-107.208   c-29.589-29.554-77.679-29.554-107.235,0L76.854,266.908c-41.388,41.369-41.388,108.715,0,150.116   c41.374,41.374,108.717,41.374,150.103,0l214.462-214.442L462.854,224.022z" fill="#7c8692"/></g></svg></div>
+									<div class="smile disabled"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 106.059 106.059" style="enable-background:new 0 0 106.059 106.059;" xml:space="preserve"><g>	<path d="M90.546,15.518C69.858-5.172,36.199-5.172,15.515,15.513C-5.173,36.198-5.171,69.858,15.517,90.547   c20.682,20.684,54.341,20.684,75.027-0.004C111.23,69.858,111.229,36.2,90.546,15.518z M84.757,84.758   c-17.494,17.494-45.96,17.496-63.455,0.002c-17.498-17.497-17.496-45.966,0-63.46C38.796,3.807,67.261,3.805,84.759,21.302   C102.253,38.796,102.251,67.265,84.757,84.758z M33.24,38.671c0-3.424,2.777-6.201,6.201-6.201c3.423,0,6.2,2.776,6.2,6.201   c0,3.426-2.777,6.202-6.2,6.202C36.017,44.873,33.24,42.097,33.24,38.671z M61.357,38.671c0-3.424,2.779-6.201,6.203-6.201   c3.423,0,6.2,2.776,6.2,6.201c0,3.426-2.776,6.202-6.2,6.202S61.357,42.097,61.357,38.671z M76.017,64.068   c-3.843,8.887-12.843,14.629-22.927,14.629c-10.301,0-19.354-5.771-23.064-14.703c-0.636-1.529,0.089-3.285,1.62-3.921   c0.376-0.155,0.766-0.229,1.15-0.229c1.176,0,2.292,0.695,2.771,1.85c2.777,6.686,9.655,11.004,17.523,11.004   c7.69,0,14.528-4.321,17.42-11.011c0.658-1.521,2.424-2.222,3.944-1.563S76.675,62.548,76.017,64.068z" fill="#7c8692"/></g></svg></div>
+								</div>
+								
+								<div class="actions">
+									<div class="action disabled" data="transfer"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="19px" height="23px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 379 474" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Слой_x0020_1"><path class="fil0" fill="#A7AAB9" d="M229 0l150 115 -148 124 -1 -91c-45,1 -140,7 -230,53 62,-100 122,-127 230,-129l-1 -72zm-80 474l-149 -116 148 -123 0 90c45,0 140,-7 231,-53 -63,100 -122,128 -230,130l0 72z"/></g></svg></div><div class="text">Transfer dialog</div></div>
+									<div class="action disabled" data="block"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="18px" height="18px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 171 171" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path class="fil0" fill="#A7AAB9" d="M85 0c47,0 86,38 86,85 0,47 -39,86 -86,86 -47,0 -85,-39 -85,-86 0,-47 38,-85 85,-85zm-51 72l103 0 0 26 -103 0 0 -26z"/></g></svg></div><div class="text">Block</div></div>
+									<div class="action disabled" data="send_email"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="22px" height="18px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve"><g><path d="M306.768,346.814h0.131c4.615,0,9.176-1.339,12.866-3.777l1.001-0.643c0.218-0.142,0.446-0.271,0.675-0.424l11.658-9.645   l278.259-229.624c-0.576-0.795-1.557-1.339-2.602-1.339H3.233c-0.751,0-1.448,0.272-2.003,0.729l291.125,239.954   C296.024,345.083,301.259,346.814,306.768,346.814z M0,133.899v340.37l208.55-168.471L0,133.899z M403.668,306.941L612,474.356   V135.031L403.668,306.941z M337.431,361.585c-8.305,6.814-19.168,10.57-30.576,10.57c-11.451,0-22.304-3.734-30.587-10.516   l-47.765-39.394L0,506.806v0.587c0,1.753,1.502,3.244,3.276,3.244h605.491c1.741,0,3.232-1.491,3.232-3.255v-0.544L383.693,323.4   L337.431,361.585z" fill="#A7AAB9"/></g></svg></div><div class="text">Send email</div></div>
+								</div>
+								
+								<div class="smiles_list hide">
+									<div class="smiles_list_cont clr">
+									</div>
+								</div>
+								<div class="phrase_list hide">
+									<div class="phrase_list_cont clr">
+										<div class="block clr">
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
+						
+						<div class="send disabled"><svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="21px" height="12px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 1022 559" xmlns:xlink="http://www.w3.org/1999/xlink"><g><polygon fill="#86909C" class="fil0" points="324,235 918,235 918,7 1022,7 1022,235 1022,331 918,331 324,331 324,559 0,269 324,0 "/></g></svg></div>
+						
+						
 						
 					</div>
 					<div class="content_bottom_noopen_dialog"></div>
@@ -190,6 +249,88 @@
 			 
 			  
 			</div>
+			
+			
+
+			
+			<div class="content_visitors hide">
+				<div class="filter">
+					<div class="cont">
+						<div class="block clr">
+							<div class="text">Показать</div>
+							<div class="sel min">
+								<select name="visitors_type" class="select">
+									<option value="all" selected="selected">Все посетители</option>
+									<option value="Dialogue">Учавствуют в диалоге</option>
+									<option value="InvitedToDialogue">Приглашенные к диалогу</option>
+									<option value="DialogueCancelled">Отказавшиеся от диалога</option>
+								</select>
+							</div>
+						</div>
+						<div class="block clr">
+							<div class="text">На</div>
+							<div class="sel min">
+								<select name="visitors_site" class="select">
+									<option value="all" selected="selected">Все сайты</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="table">
+					<div class="relat">
+						<div class="top">
+							<div class="tr">
+								<div class="th th1"></div>
+								<div class="th th2">
+									<div class="ico sortable" data="visits">
+										<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="20px" height="20px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 42 42" xmlns:xlink="http://www.w3.org/1999/xlink"> <g>  <path class="fil0" fill="#ABB2BA" fill-rule="nonzero" d="M5 3l7 0 0 5 -7 0c0,0 0,0 0,0 0,0 0,0 0,1l0 27c0,0 0,1 0,1 0,0 0,0 0,0l27 0c0,0 0,0 0,0 0,0 0,-1 0,-1l0 -6 5 0 0 6c0,2 -1,3 -2,4 -1,1 -2,2 -3,2l-27 0c-1,0 -2,-1 -3,-2 -1,-1 -2,-2 -2,-4l0 -27c0,-2 1,-3 2,-4 1,-1 2,-2 3,-2zm13 1l0 21 21 0 -7 -6 10 -10 -9 -9 -9 9 -6 -5z"/> </g></svg>
+										<div class="info">Кол-во визитов</div>
+									</div>
+								</div>
+								<div class="th th3">
+									<div class="ico sortable" data="scan_pages">
+										<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24px" height="14px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 2196 1230" xmlns:xlink="http://www.w3.org/1999/xlink">    <path fill="#ABB2BA" class="fil0" d="M1098 0c-720,0 -1098,531 -1098,615 0,84 378,615 1098,615 721,0 1098,-531 1098,-615 0,-84 -377,-615 -1098,-615zm0 1088c-269,0 -488,-212 -488,-473 0,-261 219,-473 488,-473 270,0 488,212 488,473 0,261 -218,473 -488,473zm244 -473c0,131 -109,237 -244,237 -135,0 -244,-106 -244,-237 0,-131 109,-237 244,-237 73,0 -45,188 0,237 38,42 244,-60 244,0z"/></svg>
+										<div class="info">Кол-во просмотренных страниц</div>
+									</div>
+								</div>
+								<div class="th th4">
+									<div class="ico sortable act" data="presence">
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 380 380" style="enable-background:new 0 0 380 380;" xml:space="preserve" width="20px" height="20px"><g>	<path d="M190,0C85.233,0,0,85.233,0,190s85.233,190,190,190s190-85.233,190-190S294.767,0,190,0z M190,340   c-82.71,0-150-67.29-150-150S107.29,40,190,40s150,67.29,150,150S272.71,340,190,340z" fill="#abb2ba"/>	<path d="M291.993,184.132h-74.197c-2.696-4.393-6.403-8.1-10.796-10.796V84.139c0-9.389-7.611-17-17-17c-9.389,0-17,7.611-17,17   v89.197c-9.345,5.737-15.593,16.05-15.593,27.796c0,17.972,14.622,32.593,32.593,32.593c11.746,0,22.059-6.248,27.796-15.593   h74.197c9.389,0,17-7.611,17-17C308.993,191.743,301.382,184.132,291.993,184.132z" fill="#abb2ba"/></g></svg>
+										<div class="info">Время на сайте</div>
+									</div>
+								</div>
+								<div class="th th4_5"></div>
+								<div class="th th5"><div class="text">Текущая страница</div></div>
+								<div class="th th6"></div>
+								<div class="th th7"><div class="text">Город</div></div>
+								<div class="th th8"></div>
+							</div>
+						</div>
+						
+						<div class="scroll">
+							<div class="dinamic">
+								<div class="tr">
+									<div class="td">
+										<div class="ico"></div>
+									</div>
+									<div class="td">1</div>
+									<div class="td">14</div>
+									<div class="td">12ч 36м</div>
+									<div class="td"><a href="asdfsdf">Текущая страница олололо675676576574356436563 4536 56345 </a></div>
+									<div class="td"><div class="ico"></div></div>
+									<div class="td"><div class="town">Петропавловск Камчатский</div></div>
+									<div class="td"><div class="thread"></div></div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			
+			
+			
       </div>
     </div>
     <div class="clear"></div>
@@ -205,7 +346,7 @@
 
 
 	
-	<div class="property width hide">
+	<div class="property hide">
 		<div class="property_cont">
 			<div class="property_left">
 				<ul>
@@ -265,7 +406,7 @@
 								<textarea name="phrase_text" spellcheck="true" placeholder="Enter a flash message , and then click Add"></textarea>
 							</div>
 							<div class="property_phraseEnter_submit disabled">
-							
+								<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="21px" height="12px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 1022 559" xmlns:xlink="http://www.w3.org/1999/xlink"><g><polygon fill="#86909C" class="fil0" points="324,235 918,235 918,7 1022,7 1022,235 1022,331 918,331 324,331 324,559 0,269 324,0 "/></g></svg>
 							</div>
 						</div>
 					</div>

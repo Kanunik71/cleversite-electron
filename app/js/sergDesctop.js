@@ -64,6 +64,8 @@ var sergDesctop = function() {
 
 				winData.win = win;
 				
+				win.webContents.openDevTools();
+				
 				win.webContents.on('did-finish-load', function() {
 					resolve();
 					
@@ -147,8 +149,6 @@ var sergDesctop = function() {
 			winData.win.on('fastAnswerText', function(t) {
 				winData.fastAnswerText = t;
 			});
-			
-			
 			
 			
 			winData.on = function(e, f){
