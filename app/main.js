@@ -18,7 +18,7 @@ var mainWindow = null;
 
 
 
-/*
+
 //if (require("electron-squirrel-startup")) {    return;}
 if(process.platform == 'win32') {
 		var autoUpdater = require('electron-windows-updater');
@@ -29,28 +29,33 @@ if(process.platform == 'win32') {
 var platform = os.platform() + '_' + os.arch();  // usually returns darwin_64
 var version = app.getVersion();
 
-autoUpdater.setFeedURL('http://nodejs03.cleversite.ru/update/'+platform+'/'+version);
+autoUpdater.setFeedURL('http://nodejs04.cleversite.ru/update/'+platform+'/'+version);
 
-autoUpdater.checkForUpdates();
+
 
 autoUpdater.on('update-available', function() {
 	console.log('update-available');
+	win.send('test', 'update-available');
 	app.quit();
 });
 
 autoUpdater.on('error', function(e) {
 	console.log(e);
+	win.send('test', e);
 });
 autoUpdater.on('checking-for-update', function() {
 	console.log('checking-for-update');
+	win.send('test', 'checking-for-update');
 });
 autoUpdater.on('update-not-available', function() {
 	console.log('update-not-available');
+	win.send('test', 'update-not-available');
 });
 autoUpdater.on('update-downloaded', function() {
 	console.log('update-downloaded');
+	win.send('test', 'update-downloaded');
 });
-*/
+
 
 
 
@@ -67,7 +72,7 @@ app.on('ready', function () {
 
 
 
-	
+
 
 	win = new BrowserWindow({
 		height: 700,
@@ -82,7 +87,7 @@ app.on('ready', function () {
 		frame: false,
 		transparent: false,
 		webPreferences: {
-			
+
 		}
 	})
 
@@ -93,6 +98,8 @@ app.on('ready', function () {
 	//setTimeout(function() {		win.send('test', 'file://' + __dirname + '/index.html');	}, 4000);
 
 	win.webContents.openDevTools();
+
+	autoUpdater.checkForUpdates();
 
 	ipc.on('close', function () {
 		app.quit()
@@ -150,15 +157,15 @@ app.on('ready', function () {
 		win.setFullScreen(false)
 		win.show()
 	})
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
 	var tray = new Tray(__dirname + '/images/icon_tray.png');
 	const contextMenu = Menu.buildFromTemplate([
 		{label: 'Открыть Cleversite', click: function() {
@@ -171,16 +178,16 @@ app.on('ready', function () {
 	])
 	tray.setToolTip('This is my application.')
 	tray.setContextMenu(contextMenu)
-	
-	
-	
+
+
+
 	require('electron-context-menu')({
 		prepend: params => [{
 			label: 'Rainbow',
 			visible: params.mediaType === 'image'
 		}]
 	});
-	
+
 
 
 })
