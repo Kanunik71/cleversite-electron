@@ -8,7 +8,7 @@
 
 
 
-var version = '0.0.1';
+var version = '0.0.2';
 console.log('new App ' + version);
 
 
@@ -58,11 +58,16 @@ if(isNodeWebkit) {
     }
 	document.body.className = 'desctop' + (document.body.className ? ' '+document.body.className : '');
 
-	ipc.on('test', function(e,s) {
+	ipc.on('test', function(e,s,s2) {
+		console.log('--------');
 		console.log(s);
+		if(s2) {
+			console.log(s2);
+		}
+		console.log('--------');
 	});
-	
-	
+
+
 	function getCurrentApplicationPath() {
 		if (global.process.platform === 'darwin') {
 			return global.process.execPath.split('.app/Content')[0] + '.app';
@@ -94,8 +99,8 @@ if(isNodeWebkit) {
 		  });
 		}
 	});
-	
-	
+
+
 
 	/*
 	var updateFeed = 'http://nodejs03.cleversite.ru/download/latest';

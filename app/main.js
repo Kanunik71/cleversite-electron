@@ -1,7 +1,7 @@
 #!/usr/bin/env electron
 
 
-const {app, Menu, Tray} = require('electron');
+const {app, Menu, Tray, crashReporter} = require('electron');
 var BrowserWindow = require('electron').BrowserWindow;
 var path = require('path')
 var ipc = require('electron').ipcMain
@@ -10,6 +10,7 @@ var os = require('os');
 //var shell = require('shell')
 var powerSaveBlocker = require('electron').powerSaveBlocker
 var globalShortcut = require('electron').globalShortcut
+
 
 
 
@@ -36,12 +37,11 @@ autoUpdater.setFeedURL('http://nodejs04.cleversite.ru/update/'+platform+'/'+vers
 autoUpdater.on('update-available', function() {
 	console.log('update-available');
 	win.send('test', 'update-available');
-	app.quit();
 });
 
 autoUpdater.on('error', function(e) {
 	console.log(e);
-	win.send('test', e);
+	win.send('test', e, 'error');
 });
 autoUpdater.on('checking-for-update', function() {
 	console.log('checking-for-update');
@@ -51,11 +51,26 @@ autoUpdater.on('update-not-available', function() {
 	console.log('update-not-available');
 	win.send('test', 'update-not-available');
 });
-autoUpdater.on('update-downloaded', function() {
+autoUpdater.on('update-downloaded', function(Event, releaseNotes, releaseName, releaseDate, updateURL) {
+//autoUpdater.on('update-downloaded', function() {
 	console.log('update-downloaded');
-	win.send('test', 'update-downloaded');
+	win.send('test', 'update-downloaded', {e: Event,notes: releaseNotes, name: releaseName, date: releaseDate, url: updateURL});
+
+	autoUpdater.quitAndInstall();
 });
 
+
+
+
+
+
+
+crashReporter.start({
+  productName: 'Cleversite',
+  companyName: 'OOO Cleversite',
+  submitURL: 'https://cleversite.ru/cleversite/electron_log.php',
+  autoSubmit: true
+})
 
 
 
@@ -92,6 +107,8 @@ app.on('ready', function () {
 	})
 
 
+
+
 	win.loadURL('file://' + __dirname + '/index.html');
 
 
@@ -99,7 +116,9 @@ app.on('ready', function () {
 
 	win.webContents.openDevTools();
 
-	autoUpdater.checkForUpdates();
+	setTimeout(function() {
+		autoUpdater.checkForUpdates();
+	}, 5000);
 
 	ipc.on('close', function () {
 		app.quit()
@@ -176,7 +195,7 @@ app.on('ready', function () {
 			app.quit();
 		}},
 	])
-	tray.setToolTip('This is my application.')
+	tray.setToolTip('Cleversite app.')
 	tray.setContextMenu(contextMenu)
 
 

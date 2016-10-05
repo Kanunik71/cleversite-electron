@@ -1,7 +1,7 @@
 {
   "name": "cleversite",
   "description": "Pult operators",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "main.js",
   "author": "Kanunnikov Serg (kanunik71@yandex.ru)",
   "dependencies": {

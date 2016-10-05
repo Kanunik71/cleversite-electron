@@ -2,18 +2,16 @@
 
 
 
-1) Заходим в Утилиты/Связка ключей... В меню Связка ключей / Ассистент / Запросить сертификат у бюро
-2) Заходим в Dev.apple -- Development -- делаем сертификат
-3) Девайсес -- добавляем наш девайс (Xcode - Window - Device -- ID) --- делаем Reset
-4) ProvisionProfiles - Development -- добавляем сертификат.
+Заходим на developer.apple.com
+1) Регистрируем appId приложения
+2) Регистрируем ключи
+https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps
+в крации -- заходим Утилиты/Связка ключей/ В меню выбираем, запросить сертификат у бюро. Сохраняем его на диск.
+Далее нужно сгенерировать Девелопмент сертификат, Продакшен сертификат инсталлера, Продакшен сертификат дистрибьютера
+Далее нужно зайти ПРовизионг, и там еще ключи поменять.
+3) наше тестовое устройство, нужно зарегестрировать, узнать ИД устройтсоа можно (Xcode - Window - Device -- ID)
 
-export CSC_LINK=file://Users/scloud/Documents/scloud.p12
-export CSC_KEY_PASSWORD=Rafail123
-CSC_PASSWORD
-export CSC_NAME=ServiceCloud
-unset CSC_LINK
-CSC_LINK	The HTTPS link (or base64-encoded data, or file:// link) to certificate (*.p12 file).
-CSC_KEY_PASSWORD	The password to decrypt the certificate given in CSC_LINK.
-CSC_NAME	macOS-only Name of certificate (to retrieve from login.keychain). Useful on a development machine (not on CI) if you have several identities (otherwise don't specify it).
-
-export CSC_NAME="Mac Developer: Vitaly Kuzmin (N5C7ST4F6D)"
+security find-identity -v -p codesigning ----- список сертификатов на устройстве
+export CSC_LINK=https://cleversite.ru/cleversite/asdf.p12 --- генерируется в Утилиты-связка-экспорт
+export CSC_KEY_PASSWORD=Rafail3434 -- пароль от ключа
+export CSC_NAME=N5C7ST4F   --- "Mac Developer: Vitaly Kuzmin (N5C7ST4F)"
